@@ -1,6 +1,8 @@
 package com.myapp.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,10 +19,12 @@ public class Controller {
 		return student;
 	}
 	
-	@GetMapping("/about")
-	public String mycontroller1() {
+	@PostMapping("/about")
+	public Details mycontroller1(@RequestBody Details details) {
 		System.out.println("in my app");
-		return "about me";
+		
+		details.setName("changeName");
+		return details;
 	}
 
 }
